@@ -20,7 +20,8 @@ async function loadProducts() {
               <p class="card-text text-muted">${product.brand}</p>
               <p class="card-text fw-bold">€${product.price}</p>
               <div class="d-flex gap-2">
-                <a href="dettagli.html?id=${product._id}" class="btn btn-warning btn-sm">Dettagli</a>
+                <a href="dettagli.html?id=${product._id}" class="btn btn-info btn-sm">Dettagli</a>
+                <a href="modifica.html?id=${product._id}" class="btn btn-warning btn-sm">Modifica</a>
                 <button class="btn btn-danger btn-sm" onclick="deleteProduct('${product._id}')">Elimina</button>
               </div>
             </div>
@@ -61,3 +62,26 @@ async function deleteProduct(productId) {
 }
 
 loadProducts();
+
+// Toggle Dark/Light mode
+const themeToggle = document.querySelector("#theme-toggle");
+
+function updateThemeButton() {
+  const isDark = document.body.getAttribute("data-bs-theme") === "dark";
+  themeToggle.textContent = isDark ? "Light" : "Dark";
+}
+
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.body.getAttribute("data-bs-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  document.body.setAttribute("data-bs-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+  updateThemeButton();
+});
+
+// Carica tema salvato
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.body.setAttribute("data-bs-theme", savedTheme);
+}
+updateThemeButton();

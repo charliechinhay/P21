@@ -21,85 +21,89 @@
     <title>Back Office</title>
   </head>
   <body data-bs-theme="dark">
-    <div id="error" class="alert alert-danger d-none" role="alert"></div>
-    <div id="success" class="alert alert-success d-none" role="alert"></div>
-    <nav class="navbar bg-body-tertiary">
-      <div class="container-fluid ms-5">
-        <a class="navbar-brand" href="index.html">
-          <img
-            src="/docs/5.3/assets/brand/bootstrap-logo.svg"
-            alt="Logo"
-            width="30"
-            height="24"
-            class="d-inline-block align-text-top"
-          />
-          Bootstrap
-        </a>
+    <nav class="navbar bg-body-tertiary mb-4">
+      <div class="container-fluid">
+        <a class="btn btn-outline-secondary" href="index.html"
+          >← Torna ai Prodotti</a
+        >
+        <button id="theme-toggle" class="btn btn-outline-secondary ms-auto">
+          Light
+        </button>
       </div>
     </nav>
-    <div
-      class="container d-flex justify-content-center"
-      style="max-width: 600px"
-    >
-      <div class="container d-flex justify-content-center mt-5">
-        <form
-          class="row g-3"
-          style="max-width: 600px"
-          id="product-form"
-          novalidate
-        >
-          <div class="col-md-6">
-            <label for="product-name" class="form-label">Nome</label>
-            <input
-              type="text"
-              class="form-control"
-              id="product-name"
-              name="name"
-            />
-          </div>
-          <div class="col-md-6">
-            <label for="brand-name" class="form-label">Brand</label>
-            <input
-              type="text"
-              class="form-control"
-              id="brand-name"
-              name="brand"
-            />
-          </div>
-          <div class="col-md-6">
-            <label for="image-url" class="form-label">URL Image</label>
-            <input
-              type="text"
-              class="form-control"
-              id="image-url"
-              name="imageUrl"
-            />
-          </div>
-          <div class="col-md-6">
-            <label for="price" class="form-label">Price</label>
-            <input type="number" class="form-control" id="price" name="price" />
-          </div>
+    <div class="container py-4">
+      <h1 class="mb-4 text-center display-5 fw-semibold border-bottom pb-3">
+        Nuovo Prodotto
+      </h1>
+      <div id="error" class="alert alert-danger d-none" role="alert"></div>
+      <div id="success" class="alert alert-success d-none" role="alert"></div>
+      <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="card shadow-sm border-0">
+            <div class="card-body p-4">
+              <form class="row g-3" id="product-form" novalidate>
+                <div class="col-md-6">
+                  <label for="product-name" class="form-label">Nome</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="product-name"
+                    name="name"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="brand-name" class="form-label">Brand</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="brand-name"
+                    name="brand"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="image-url" class="form-label">URL Image</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="image-url"
+                    name="imageUrl"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label for="price" class="form-label">Price</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="price"
+                    name="price"
+                  />
+                </div>
 
-          <div class="col-md-12">
-            <label for="description" class="form-label">Description</label>
-            <input
-              type="text"
-              class="form-control"
-              id="description"
-              name="description"
-            />
-          </div>
+                <div class="col-md-12">
+                  <label for="description" class="form-label"
+                    >Description</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="description"
+                    name="description"
+                  />
+                </div>
 
-          <div class="col-12">
-            <button id="apply" class="btn btn-primary" type="submit">
-              <span
-                class="spinner spinner-grow spinner-grow-sm d-none"
-                aria-hidden="true"
-              ></span>
-              <span role="status">Crea</span>
-            </button>
+                <div class="col-12">
+                  <button id="apply" class="btn btn-primary" type="submit">
+                    <span
+                      class="spinner spinner-grow spinner-grow-sm d-none"
+                      aria-hidden="true"
+                    ></span>
+                    <span role="status">Crea</span>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </div>
     <div class="container">

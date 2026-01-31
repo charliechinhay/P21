@@ -21,16 +21,24 @@
     <title>Dettagli Prodotto</title>
   </head>
   <body data-bs-theme="dark">
-    <div class="container py-4">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1>Dettagli Prodotto</h1>
-        <a href="index.html" class="btn btn-outline-secondary"
-          >← Torna ai Prodotti</a
-        >
+    <nav class="navbar bg-body-tertiary mb-4">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Prodotti Alimentari</span>
+        <div class="ms-auto d-flex gap-3">
+          <a class="btn btn-outline-secondary" href="index.html"
+            >← Torna ai Prodotti</a
+          >
+          <button id="theme-toggle" class="btn btn-outline-secondary">
+            Light
+          </button>
+        </div>
       </div>
-
+    </nav>
+    <div class="container py-4">
+      <h1 class="mb-4 text-center display-5 fw-semibold border-bottom pb-3">
+        Dettagli Prodotto
+      </h1>
       <div id="error" class="alert alert-danger d-none"></div>
-      <div id="success" class="alert alert-success d-none"></div>
       <div id="loading" class="text-center py-5">
         <div class="spinner-border" role="status">
           <span class="visually-hidden">Caricamento...</span>
@@ -38,7 +46,7 @@
       </div>
 
       <div id="product-detail" class="d-none">
-        <div class="row">
+        <div class="row g-4">
           <!-- Colonna immagine -->
           <div
             class="col-md-5 mb-4 d-flex align-items-center justify-content-center"
@@ -47,80 +55,34 @@
               id="product-image"
               src=""
               alt="Immagine prodotto"
-              class="img-fluid rounded shadow"
+              class="img-fluid rounded-4 shadow-lg"
               style="max-height: 400px; max-width: 100%; object-fit: contain"
             />
           </div>
 
-          <!-- Colonna form -->
+          <!-- Colonna dettagli -->
           <div class="col-md-7">
-            <form id="edit-form">
-              <input type="hidden" id="product-id" />
-
-              <div class="mb-3">
-                <label for="product-name" class="form-label">Nome</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="product-name"
-                  required
-                />
+            <div class="card shadow-sm border-0">
+              <div class="card-body p-4">
+                <h2 id="product-name" class="card-title mb-4 fw-bold"></h2>
+                <p class="mb-3 fs-5">
+                  <i class="text-muted">Brand:</i>
+                  <span id="product-brand" class="ms-2"></span>
+                </p>
+                <p class="mb-3 fs-5">
+                  <i class="text-muted">Prezzo:</i>
+                  <span
+                    id="product-price"
+                    class="text-success fw-bold fs-4 ms-2"
+                  ></span>
+                </p>
+                <hr class="my-4" />
+                <p class="mb-2 text-muted">
+                  <strong>Descrizione:</strong>
+                </p>
+                <p id="product-description" class="lh-lg"></p>
               </div>
-
-              <div class="mb-3">
-                <label for="product-brand" class="form-label">Brand</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="product-brand"
-                  required
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="product-imageUrl" class="form-label"
-                  >URL Immagine</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="product-imageUrl"
-                  placeholder="https://example.com/image.jpg"
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="product-price" class="form-label">Prezzo (€)</label>
-                <input
-                  type="number"
-                  step="0.01"
-                  class="form-control"
-                  id="product-price"
-                  required
-                />
-              </div>
-
-              <div class="mb-3">
-                <label for="product-description" class="form-label"
-                  >Descrizione</label
-                >
-                <textarea
-                  class="form-control"
-                  id="product-description"
-                  rows="3"
-                ></textarea>
-              </div>
-
-              <div class="d-flex gap-2">
-                <button type="button" class="btn btn-primary" id="save-btn">
-                  Salva Modifiche
-                </button>
-                <button type="button" class="btn btn-danger" id="delete-btn">
-                  Elimina Prodotto
-                </button>
-                <a href="index.html" class="btn btn-secondary">Annulla</a>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>

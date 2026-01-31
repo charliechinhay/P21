@@ -102,3 +102,26 @@ async function fetchProducts() {
 }
 
 fetchProducts();
+
+// Toggle Dark/Light mode
+const themeToggle = document.querySelector("#theme-toggle");
+
+function updateThemeButton() {
+  const isDark = document.body.getAttribute("data-bs-theme") === "dark";
+  themeToggle.textContent = isDark ? "Light" : "Dark";
+}
+
+themeToggle.addEventListener("click", () => {
+  const currentTheme = document.body.getAttribute("data-bs-theme");
+  const newTheme = currentTheme === "dark" ? "light" : "dark";
+  document.body.setAttribute("data-bs-theme", newTheme);
+  localStorage.setItem("theme", newTheme);
+  updateThemeButton();
+});
+
+// Carica tema salvato
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme) {
+  document.body.setAttribute("data-bs-theme", savedTheme);
+}
+updateThemeButton();
