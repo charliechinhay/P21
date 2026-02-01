@@ -18,7 +18,7 @@ buttonSubmit.addEventListener("click", async (e) => {
 
   // Validazione campi obbligatori
   if (!productName.value || !productBrand.value || !productPrice.value) {
-    alert("Compila tutti i campi obbligatori (Nome, Brand, Prezzo)");
+    alert("Compila tutti i campi obbligatori (Name, Brand, Price)");
     return;
   }
 
